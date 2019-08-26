@@ -29,7 +29,7 @@ CREATE TABLE passengers
         planet VARCHAR(100) NOT NULL,
         PRIMARY KEY (id)
     );
-CREATE TABLE destination
+CREATE TABLE destinations
 	(
 		id INT AUTO_INCREMENT NOT NULL,
         dName VARCHAR(100) NOT NULL,
