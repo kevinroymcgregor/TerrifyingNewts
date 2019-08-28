@@ -20,7 +20,7 @@ CREATE TABLE passengers
         last_name VARCHAR(120) NOT NULL,
         first_name VARCHAR(120) NOT NULL,
         email_address VARCHAR(150) NOT NULL,
-        phone_number INT NOT NULL,
+        phone_number VARCHAR(15) NOT NULL,
         age INT,
         street_address VARCHAR(255) NOT NULL,
         city VARCHAR(100) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE destinations
     );
 CREATE TABLE cruises
 	(
-		id INT NOT NULL,
+		id INT AUTO_INCREMENT NOT NULL,
         ship_id INT NOT NULL,
         depart_id INT NOT NULL,
         dest_id INT NOT NULL,
