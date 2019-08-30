@@ -1,10 +1,15 @@
 const express = require('express');
-const path = require('path');
-const favicon = require ('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookieParser');
-const bodyParser = require('bodyParser');
-const expressValidator = require('express-validator');
 
-//Authentication Packages
-const session = require('express-session');
+const app = express();
+
+//set up view engine
+app.set('view engine', 'ejs');
+
+//create home route
+app.get('/', (req, res) => {
+    res.render('home')
+});
+
+app.listen(8080,() => {
+    console.log('app is now listening on port 8080')
+});
