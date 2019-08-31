@@ -1,6 +1,9 @@
 const express = require('express');
 const authRoutes = require('./routes/auth-routes');
+require('./routes/api-routes');
 const app = express();
+
+const PORT = process.env.PORT || 8080;
 
 //set up view engine
 app.set('view engine', 'ejs');
@@ -13,6 +16,6 @@ app.get('/', (req, res) => {
     res.render('home')
 });
 
-app.listen(8080,() => {
-    console.log('app is now listening on port 8080')
+app.listen(PORT,() => {
+    console.log('app is now listening on port' + PORT);
 });
