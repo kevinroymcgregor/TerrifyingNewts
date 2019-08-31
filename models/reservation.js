@@ -3,12 +3,12 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Reservation.associate = function (models) {
-        Reservation.belongsTo(models.Cruise, {
+        models.Reservations.belongsTo(models.Cruises, {
             foreignKey: {
                 allowNull: false
             }
         });
-        Reservation.belongsTo(models.passenger, {
+        models.Reservations.belongsTo(models.Passengers, {
             foreignKey: {
                 allowNull: false
             }
