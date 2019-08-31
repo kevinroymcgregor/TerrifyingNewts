@@ -1,7 +1,8 @@
 const express = require('express');
 const authRoutes = require('./routes/auth-routes');
-require('./routes/api-routes');
+const apiRoutes = require('./routes/api-routes');
 const app = express();
+const db = require("./models");
 
 const PORT = process.env.PORT || 8080;
 
@@ -10,12 +11,15 @@ app.set('view engine', 'ejs');
 
 //set up routes
 app.use('/auth', authRoutes);
+app.use('/api/', apiRoutes);
 
 //create home route
 app.get('/', (req, res) => {
     res.render('home')
 });
 
-app.listen(PORT,() => {
-    console.log('app is now listening on port' + PORT);
+db.sequelize.sync().then(function(){
+    app.listen(PORT, () => {
+        console.log('app is now listening on port' + PORT);
+    });
 });
