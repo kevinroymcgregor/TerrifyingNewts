@@ -12,6 +12,8 @@ CREATE TABLE ships
         fuel VARCHAR(15),
         maxPassenger INT NOT NULL,
         crew INT NOT NULL,
+        createdAt DATETIME,
+        updatedAt DATETIME,
         PRIMARY KEY (id)
     );
 CREATE TABLE passengers 
@@ -27,6 +29,8 @@ CREATE TABLE passengers
         state_province VARCHAR(100) NOT NULL,
         country VARCHAR(100) NOT NULL,
         planet VARCHAR(100) NOT NULL,
+        createdAt DATETIME,
+        updatedAt DATETIME,
         PRIMARY KEY (id)
     );
 CREATE TABLE destinations
@@ -36,6 +40,8 @@ CREATE TABLE destinations
         location VARCHAR(25) NOT NULL,
         berths INT NOT NULL,
         dock_stations INT NOT NULL,
+        createdAt DATETIME,
+        updatedAt DATETIME,
         PRIMARY KEY (id)
     );
 CREATE TABLE cruises
@@ -46,6 +52,8 @@ CREATE TABLE cruises
         dest_id INT NOT NULL,
         depart_date DATETIME NOT NULL,
         arrival_date DATETIME NOT NULL,
+        createdAt DATETIME,
+        updatedAt DATETIME,
         PRIMARY KEY (id),
         FOREIGN KEY (ship_id) REFERENCES ships(id)
     );
@@ -53,6 +61,8 @@ CREATE TABLE reservations
 	(
 		cruise_id INT NOT NULL,
         passenger_id INT NOT NULL,
+        createdAt DATETIME,
+        updatedAt DATETIME,
         PRIMARY KEY (cruise_id, passenger_id),
         FOREIGN KEY (cruise_id) REFERENCES cruises(id),
         FOREIGN KEY (passenger_id) REFERENCES passengers(id)

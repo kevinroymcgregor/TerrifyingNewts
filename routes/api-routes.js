@@ -1,11 +1,19 @@
-const Ship = require("../models/ship");
+const db = require("../models");
 const router = require('express').Router();
 
 // Routes
 // =============================================================
 router.get('/ships', (req, res) => {
-  Ship.findAll({
-    // include: [db.cruise]
+  db.Ships.findAll({
+     include: [db.Cruises]
+  }).then(function (dbResult) {
+    res.send(dbResult)
+  });
+});
+
+router.get('/cruise', (req, res) => {
+  db.Cruises.findAll({
+     include: [db.Ships, db.Destinations]     
   }).then(function (dbResult) {
     res.send(dbResult)
   });

@@ -15,16 +15,9 @@ module.exports = function(sequelize, DataTypes) {
       crew: DataTypes.INTEGER
     });
 
-    // Ship.associate = function(models) {
-    //   // models.Cruise.belongsTo(models.Ship, {
-    //   //   foreignKey: {
-    //   //     allowNull: false
-    //   //   }
-    //   // });
-    //   models.Ship.hasMany(models.Cruise, {foreignKey: 'Ship_id'});
-    //   // Cruise.hasMany(Destination, {foreignKey: 'depart_id'})
-    //   // Cruise.hasMany(Destination, {foreignKey: 'dest_id'})
-    // };
+    Ship.associate = function(models) {
+      models.Ships.hasMany(models.Cruises, {foreignKey: 'Ship_id'});
+    };
     return Ship;
   };
   
