@@ -1,23 +1,39 @@
 const db = require("../models");
+const router = require('express').Router();
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-
-  // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
-    // var query = {};
-    // if (req.query.author_id) {
-    //   query.AuthorId = req.query.author_id;
-    // }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Ship.findAll({
-    //   where: query,
-      include: [db.Cruise]
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
+router.get('/ships', (req, res) => {
+  db.Ships.findAll({
+    //  include: [db.Cruises]
+  }).then(function (dbResult) {
+    res.send(dbResult)
   });
-}
+});
+
+router.get('/destinations', (req, res) => {
+  db.Destinations.findAll({
+  }).then(function (dbResult) {
+    res.send(dbResult)
+  });
+});
+
+router.get('/cruises/:id?', (req, res) => {
+  if (req.params.id) {
+    db.Cruises.findAll({
+      include: [db.Ships,
+      { model: db.Destinations, as: 'depart_id_fk' },
+      { model: db.Destinations, as: 'dest_id_fk' }],
+      where: { id: req.params.id }
+    }).then(function (dbResult) {
+      res.send(dbResult)
+    })
+  }
+  else {
+    db.Cruises.findAll({}).then(function (dbResult) {
+      res.send(dbResult)
+    })
+  }
+});
+
+module.exports = router;

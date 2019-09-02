@@ -14,14 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Cruise.associate = function(models) {
-      // models.Cruise.belongsTo(models.Ship, {
-      //   foreignKey: {
-      //     allowNull: false
-      //   }
-      // });
       models.Cruises.belongsTo(models.Ships, {foreignKey: 'Ship_id'});
-      models.Cruises.belongsTo(models.Destinations, {foreignKey: 'depart_id'})
-      models.Cruises.belongsTo(models.Destinations, {foreignKey: 'dest_id'})
+      models.Cruises.belongsTo(models.Destinations, 
+        {as: 'depart_id_fk', foreignKey: 'depart_id'}), 
+      models.Cruises.belongsTo(models.Destinations, 
+        {as: 'dest_id_fk', foreignKey: 'dest_id'});
     };
 
     return Cruise;
