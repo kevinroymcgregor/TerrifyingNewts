@@ -36,4 +36,16 @@ router.get('/cruises/:id?', (req, res) => {
   }
 });
 
+router.post('/reservations', (req, res) => {
+  const cruise = req.body.cruise;
+  const passenger = req.body.passenger;
+  db.Reservations.create({
+    cruise_id: cruise,
+    passenger_id: passenger
+  })
+    .then(function (dbRes) {
+      res.json(dbRes);
+    });
+});
+
 module.exports = router;
