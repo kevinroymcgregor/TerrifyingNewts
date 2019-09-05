@@ -54,9 +54,6 @@ router.post('/reservations', (req, res) => {
     .then(function (dbRes) {
       res.json(dbRes);
     });
-  // console.log(cruise);
-  // console.log(passenger);
-  // res.json(req.body)
 });
 
 module.exports = router;
