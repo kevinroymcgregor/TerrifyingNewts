@@ -59,11 +59,13 @@ CREATE TABLE cruises
     );
 CREATE TABLE reservations
 	(
-		cruise_id INT NOT NULL,
+		id INT AUTO_INCREMENT NOT NULL,
+        cruise_id INT NOT NULL,
         passenger_id INT NOT NULL,
         createdAt DATETIME,
         updatedAt DATETIME,
-        PRIMARY KEY (cruise_id, passenger_id),
+        PRIMARY KEY (id),
         FOREIGN KEY (cruise_id) REFERENCES cruises(id),
-        FOREIGN KEY (passenger_id) REFERENCES passengers(id)
+        FOREIGN KEY (passenger_id) REFERENCES passengers(id),
+        CONSTRAINT UC_Res UNIQUE (cruise_id, passenger_id)
     )

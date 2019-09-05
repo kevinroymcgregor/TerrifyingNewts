@@ -1,8 +1,3 @@
-// const Ship = require('./ship.js');
-// const Destination = require('./destination.js');
-// const models = require('../models')
-// require('./index')
-
 module.exports = function(sequelize, DataTypes) {
     const Cruise = sequelize.define("Cruises", {
       id: {
