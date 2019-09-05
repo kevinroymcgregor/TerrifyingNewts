@@ -9,10 +9,12 @@ const PORT = process.env.PORT || 8080;
 
 //set up view engine
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //set up routes
 app.use('/auth', authRoutes);
-app.use('/api/', apiRoutes);
+app.use('/api', apiRoutes);
 
 //create home route
 app.get('/', (req, res) => {
