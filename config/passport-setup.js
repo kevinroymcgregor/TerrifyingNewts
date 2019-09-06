@@ -7,10 +7,11 @@ passport.use(
         // options for google strategy
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL: '/auth/google/redirect'
+        callbackURL: '/html/home'
     }, (accessToken, refreshToken, profile, done) => {
         // passport callback function
-        console.log('passport callback function fired:');
+        // console.log('passport callback function fired:');
         console.log(profile);
+        done();
     })
 );
