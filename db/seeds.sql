@@ -25,7 +25,7 @@ VALUES ('Star in the Sky', 'LEO-1', 2500, 6),
 
 INSERT INTO passengers 
 	(
-		last_name, first_name, age,
+		first_name, last_name, age,
         phone_number, street_address,
         city, state_province, country, planet, email_address
     )
@@ -263,6 +263,12 @@ INSERT INTO cruises
 VALUES
 	(
 		1, 1, 2, '2020-06-06', '2020-06-08'
+    ),
+	(
+		5, 1, 3, '2020-08-26', '2020-08-30'
+    ),
+    (
+		7, 2, 6, '2033-02-01', '2020-03-31'
     );
     
 INSERT INTO reservations
