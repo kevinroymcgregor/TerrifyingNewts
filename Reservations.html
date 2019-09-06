@@ -11,9 +11,10 @@
 </head>
 
 <body>
-    <header>
+    <header align=center>
         <img src=".\pictures\Planets\sunrise-over-the-earth-2.jpg" alt="Sunrise over the Earth">
     </header>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Space Cruises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -24,20 +25,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./Index.html">Home</a>
+                    <a class="nav-link" href="Index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Destinations.html">Destinations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Ships.html">Ships</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Reservations.html">Reservations</a>
-                </li>
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Destinations.html">Destinations <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="Ships.html">Ships <span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Reservations.html">Reservations <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+
         </div>
     </nav>
-<h1>Reservations</h1>
+
+    <h1 class= text-center>Reservations</h1>
 </body>
 
 </html>
