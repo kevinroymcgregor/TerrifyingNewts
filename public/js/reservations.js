@@ -13,6 +13,7 @@ $(document).ready(function () {
     //     // )
     //     console.log("This function ran");
     // }
+
 const stuff = $('#cruise-form');
     $("#cruise-form").on("submit", handleFormSubmit);
 
