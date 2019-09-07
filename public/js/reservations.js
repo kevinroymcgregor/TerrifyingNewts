@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    const passenger = 237;
+    const passenger = 11;
 
     let cruise
     $(".btn").on("click", function (event) {
