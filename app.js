@@ -12,7 +12,11 @@ app.set('view engine', 'ejs');
 
 // set up routes
 app.use('/auth', authRoutes);
+app.use('/api', apiRoutes);
+app.use('/html', htmlRoutes);
+app.use(express.static('public'));
 // app.use('/profile', profileRoutes);
+
 
 // create home route
 app.get('/', (req, res) => {
