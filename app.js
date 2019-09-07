@@ -5,6 +5,8 @@ const passportSetup = require('./config/passport-setup');
 const apiRoutes = require('./routes/api-routes');
 const htmlRoutes = require('./routes/html-routes');
 
+const PORT = process.env.PORT || 8080;
+
 const app = express();
 
 // set view engine
@@ -23,6 +25,6 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log('app now listening for requests on port 8080');
 });
